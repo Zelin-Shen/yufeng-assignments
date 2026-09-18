@@ -1,0 +1,49 @@
+{
+  "model_type": "bert",
+  "data_ratio": 1.0,
+  "run_type": "saved",
+  "config": {
+    "max_seq_length": 512,
+    "relation_num": 97,
+    "dis_size": 20,
+    "h_t_limit": 1800,
+    "batch_size": 12,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.1,
+    "num_epochs": 200,
+    "eval_interval": 5,
+    "early_stopping_patience": 5,
+    "neg_multiple": 3,
+    "weight_decay": 0.01,
+    "dropout": 0.1,
+    "adam_epsilon": 1e-08,
+    "max_grad_norm": 1.0,
+    "pos_weight_positive": 2.0,
+    "pos_weight_na": 1.0
+  },
+  "best_epoch": 185,
+  "best_theta": 0.9726645350456238,
+  "training_time_hours": 5.944547259807587,
+  "early_stopped": false,
+  "dev": {
+    "RE_F1": 0.549768004841638,
+    "Evi_F1": 0.5227945038843272,
+    "RE_ignore_annotated_F1": 0.5277447984202569,
+    "RE_ignore_distant_F1": 0.5277447984202569,
+    "all_auc": 0.528697446764372,
+    "ign_auc": 0.4973906726026986
+  },
+  "evidence_stats": {
+    "total_gt_relations": 12323,
+    "predicted_relations": 6218,
+    "gt_with_evidence": 11836,
+    "evidence_tp": 9455,
+    "evidence_fp": 7168,
+    "evidence_fn": 10093,
+    "evidence_precision": 0.5687902304036576,
+    "evidence_recall": 0.48368119500716183
+  },
+  "test_predictions_file": "codalab_submissions/bert_100pct_test.json",
+  "num_predictions": 10878
+}

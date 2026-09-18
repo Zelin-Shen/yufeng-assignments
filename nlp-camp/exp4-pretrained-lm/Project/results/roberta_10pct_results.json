@@ -1,0 +1,49 @@
+{
+  "model_type": "roberta",
+  "data_ratio": 0.1,
+  "run_type": "saved",
+  "config": {
+    "max_seq_length": 512,
+    "relation_num": 97,
+    "dis_size": 20,
+    "h_t_limit": 1800,
+    "batch_size": 4,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 3e-05,
+    "warmup_ratio": 0.15,
+    "num_epochs": 200,
+    "eval_interval": 5,
+    "early_stopping_patience": 5,
+    "neg_multiple": 3,
+    "weight_decay": 0.02,
+    "dropout": 0.2,
+    "adam_epsilon": 1e-08,
+    "max_grad_norm": 1.0,
+    "pos_weight_positive": 2.0,
+    "pos_weight_na": 1.0
+  },
+  "best_epoch": 130,
+  "best_theta": 0.7907228469848633,
+  "training_time_hours": 1.4390046364068985,
+  "early_stopped": true,
+  "dev": {
+    "RE_F1": 0.4714815622954397,
+    "Evi_F1": 0.4793039966743868,
+    "RE_ignore_annotated_F1": 0.46612186972363895,
+    "RE_ignore_distant_F1": 0.46612186972363895,
+    "all_auc": 0.4176118740458079,
+    "ign_auc": 0.4096535007057771
+  },
+  "evidence_stats": {
+    "total_gt_relations": 12323,
+    "predicted_relations": 5278,
+    "gt_with_evidence": 11836,
+    "evidence_tp": 8071,
+    "evidence_fp": 6059,
+    "evidence_fn": 11477,
+    "evidence_precision": 0.5711960368011323,
+    "evidence_recall": 0.41288111315735626
+  },
+  "test_predictions_file": "codalab_submissions/roberta_10pct_test.json",
+  "num_predictions": 10842
+}

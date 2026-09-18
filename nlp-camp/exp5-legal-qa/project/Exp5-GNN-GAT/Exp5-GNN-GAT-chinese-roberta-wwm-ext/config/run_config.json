@@ -1,0 +1,88 @@
+{
+    "ts": 1768928534,
+    "experiment_name": "Exp5-GNN-GAT",
+    "paths": {
+        "pretrained_model": "data/pretrained_model",
+        "raw_data_root": "data/data",
+        "processed_data_root": "data/processed_data",
+        "output_root": "output",
+        "train_data_path": "data/data/train.json",
+        "dev_data_path": "data/data/dev.json"
+    },
+    "env": {
+        "cuda_device_id": 0,
+        "num_cpu_threads": 25,
+        "use_amp": false,
+        "seed": 42
+    },
+    "train": {
+        "train_batch_size": 16,
+        "eval_batch_size": 32,
+        "learning_rate": 2e-05,
+        "num_epochs": 60,
+        "grad_accum_steps": 2,
+        "weight_decay": 0.01,
+        "warmup_ratio": 0.03,
+        "lr_gnn_mult": 3.0,
+        "grad_clip_norm": 1.0,
+        "type_loss_weight": 1.0,
+        "sp_loss_weight": 5.0,
+        "early_stop": {
+            "enable": true,
+            "metric": "joint_f1",
+            "mode": "max",
+            "patience": 30,
+            "min_delta": 1e-06
+        },
+        "lr_logging_mode": "optimizer"
+    },
+    "preprocess": {
+        "max_seq_len": 512,
+        "max_query_tokens": 50,
+        "max_doc_tokens": 4096,
+        "doc_window_overlap_words": 128,
+        "max_sentences": 100,
+        "max_entities": 40,
+        "max_paragraphs": 10,
+        "max_answer_span_len": 30,
+        "entity_sent_sim_th": 0.35,
+        "force_entity_connect_top1": true,
+        "force_reprocess": false,
+        "rebuild_on_invalid_features": true
+    },
+    "postprocess": {
+        "enable_sp_threshold_search": true,
+        "sp_prob_threshold_default": 0.5,
+        "sp_threshold_coarse_grid": [
+            0.05,
+            0.1,
+            0.15000000000000002,
+            0.2,
+            0.25,
+            0.3,
+            0.35000000000000003,
+            0.4,
+            0.45,
+            0.5,
+            0.55,
+            0.6000000000000001,
+            0.6500000000000001,
+            0.7000000000000001,
+            0.7500000000000001,
+            0.8,
+            0.8500000000000001,
+            0.9000000000000001,
+            0.9500000000000001
+        ],
+        "sp_threshold_fine_step": 0.01,
+        "sp_threshold_fine_radius": 0.05
+    },
+    "model": {
+        "hetero_gnn_layers": 2,
+        "hetero_gnn_dropout": 0.1,
+        "hetero_gat_heads": 4,
+        "edge_weight_eps": 1e-06,
+        "num_answer_types": 4
+    },
+    "processed_data_existing_files": {}
+}
