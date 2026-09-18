@@ -1,0 +1,16 @@
+# Assignments environment (Python 3.9+)
+# exp1/exp2/exp4/exp7
+torch>=2.0
+torchvision>=0.15
+scikit-learn>=1.1
+pandas>=1.5
+numpy>=1.23
+matplotlib>=3.6
+tqdm>=4.64
+Pillow>=9.0
+scikit-image>=0.19
+medpy>=0.4
+jupyter>=1.0
+easydict>=1.10
+# exp5 object detection (install separately per https://github.com/open-mmlab/mmdetection)
+# mmcv-full / mmdet
